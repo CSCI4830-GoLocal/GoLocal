@@ -24,7 +24,7 @@ b. 'npm install' \
 c. 'npm run dev'
 3. Set up local backend...
 a. 'cd backend' \
-b. 'pipenv install' \
-c. 'pipenv shell' \
+b. 'pipenv shell' \
+c. 'pipenv install' \
 d. 'cd app' \
 e. 'python3 main.py'
