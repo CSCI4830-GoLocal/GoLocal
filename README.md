@@ -28,3 +28,7 @@ b. 'pipenv shell' \
 c. 'pipenv install' \
 d. 'cd app' \
 e. 'python3 main.py'
+
+## OR use makefile to run
+1. ```make run_frontend```
+2. ```make run_backend```
