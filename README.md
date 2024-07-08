@@ -30,5 +30,7 @@ d. 'cd app' \
 e. 'python3 main.py'
 
 ## OR use makefile to run
-1. ```make run_frontend```
-2. ```make run_backend```
+1. ```make install_backend```
+2. ```make install_frontend```
+3. ```make run_frontend```
+4. ```make run_backend```
