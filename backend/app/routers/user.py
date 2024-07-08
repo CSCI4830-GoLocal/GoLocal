@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
-from models.user import User
-from config import db
+from app.models.user import User
+from app.config import db
 
 
 user_router = Blueprint("user", __name__, url_prefix="/user")

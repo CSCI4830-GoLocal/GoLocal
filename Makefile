@@ -4,8 +4,13 @@ install_backend:
 install_frontend:
 	cd frontend && npm install
 
-run_backend: install_backend
-	cd backend && python3 app/main.py
+run_backend: 
+	make install_backend
+	cd backend && python3 -m app.main
 
-run_frontend: install_frontend
+run_frontend: 
+	make install_frontend
 	cd frontend && npm run dev
+
+test:
+	cd backend && pipenv run pytest -p no:warnings
