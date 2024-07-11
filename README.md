@@ -16,19 +16,12 @@ GoLocal is designed to bring visibility to small businesses and a supportive com
 - Pipenv
 - Node.js
 
-### To run the app locally:
-1. Clone the repository
-2. Set up local frontend... \
-a. 'cd frontend' \
-b. 'npm install' \
-c. 'npm run dev'
-3. Set up local backend...
-a. 'cd backend' \
-b. 'pipenv shell' \
-c. 'pipenv install' \
-d. 'cd app' \
-e. 'python3 main.py'
+### Use MakeFile to run
+1. ```make install_backend```
+2. ```make install_frontend```
+3. ```make run_frontend```
+4. ```make run_backend```
 
-## OR use makefile to run
-1. ```make run_frontend```
-2. ```make run_backend```
+## Testing
+### For Backend
+```make test```

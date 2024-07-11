@@ -9,6 +9,8 @@ flask-cors = "*"
 flask-sqlalchemy = "*"
 
 [dev-packages]
+python-dotenv = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.12"

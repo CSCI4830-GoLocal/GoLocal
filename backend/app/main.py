@@ -1,5 +1,9 @@
-from flask import request, jsonify
-from config import app, db
+from app.config import app, db
+from app.routers import router
+
+
+# Registering the original router from routers/__init__.py
+app.register_blueprint(router)
 
 
 @app.route("/")
