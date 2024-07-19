@@ -27,7 +27,9 @@ def test_create_reviews(client):
     }
     reviews_data = {
         "companyId": 1,
-        "comment": "This is a test review."
+        "comment": "This is a test review.",
+        "stars": 5,
+        "user_id": 1
     }
     client.post("/api/v1/user/create", json=user_data)
     client.post("/api/v1/company/create", json=company_data)
@@ -38,6 +40,8 @@ def test_create_reviews(client):
     reviews = Reviews.query.filter_by(comment=reviews_data["comment"]).first()
     assert reviews.comment == reviews_data["comment"]
     assert reviews.company_id == reviews_data["companyId"]
+    assert reviews.stars == reviews_data["stars"]
+    assert reviews.user_id == reviews_data["user_id"]
 
 
 def test_create_reviews_missing_fields(client):
@@ -91,7 +95,9 @@ def test_update_reviews(client):
     }
     reviews_data = {
         "comment": "This is a test review.",
-        "companyId": 1
+        "companyId": 1,
+        "stars": 5,
+        "user_id": 1
     }
     client.post("/api/v1/user/create", json=user_data)
     client.post("/api/v1/company/create", json=company_data)
@@ -134,7 +140,9 @@ def test_delete_reviews(client):
     }
     reviews_data = {
         "comment": "This is a test review.",
-        "companyId": 1
+        "companyId": 1,
+        "stars": 5,
+        "user_id": 1
     }
     client.post("/api/v1/user/create", json=user_data)
     client.post("/api/v1/company/create", json=company_data)

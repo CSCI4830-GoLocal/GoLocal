@@ -25,6 +25,8 @@ def list_reviews():
 def create_reviews():
    company_id = request.json.get("companyId")
    comment = request.json.get("comment")
+   stars = request.json.get("stars")
+   user_id = request.json.get("user_id")
 
    company = Company.query.get(company_id)
 
@@ -36,7 +38,9 @@ def create_reviews():
 
    new_reviews = Reviews(
        company_id=company_id,
-       comment=comment
+       comment=comment,
+       stars = stars,
+       user_id = user_id
    )
 
    try:

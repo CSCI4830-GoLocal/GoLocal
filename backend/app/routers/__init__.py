@@ -1,6 +1,6 @@
 from .user import user_router
 from .company import company_router
-from .posts import post_router
+from .post import post_router
 from .reviews import reviews_router
 from flask import Blueprint
 
