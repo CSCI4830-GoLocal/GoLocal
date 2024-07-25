@@ -9,6 +9,28 @@ user_router = Blueprint("user", __name__, url_prefix="/user")
 # This route will return a list of all users in the database
 @user_router.route("/list", methods=["GET"])
 def list_users():
+    """
+    List all users
+    ---
+    responses:
+        200:
+            description: A list of all users
+            schema:
+            type: json
+            properties:
+                id:
+                    type: integer
+                firstName:
+                    type: string
+                lastName:
+                    type: string
+                email:
+                    type: string
+                dateCreated:
+                    type: datetime
+                isOwner:
+                    type: boolean
+    """
     users = User.query.all()
     json_users = list(map(lambda user: user.to_json(), users))
     return jsonify({"users": json_users})
@@ -17,6 +39,33 @@ def list_users():
 # This route will create a new user in the database
 @user_router.route("/create", methods=["POST"])
 def create_user():
+    """
+    Create a new user
+    ---
+    responses:
+        201:
+            description: The newly created user
+            type: json
+            properties:
+                id:
+                    type: integer
+                firstName:
+                    type: string
+                lastName:
+                    type: string
+                email:
+                    type: string
+                dateCreated:
+                    type: datetime
+                isOwner:
+                    type: boolean
+        400:
+            description: Missing required fields
+            type: json
+            properties:
+                error:
+                    type: string
+    """
     first_name = request.json.get("firstName")
     last_name = request.json.get("lastName")
     email = request.json.get("email")
@@ -44,6 +93,34 @@ def create_user():
 # This route will update a user in the database
 @user_router.route("/update/<int:user_id>", methods=["PATCH"])
 def update_user(user_id):
+    """
+    Update an existing user
+    ---
+    responses:
+        201:
+            description: The updated user
+            type: json
+            properties:
+                id:
+                    type: integer
+                firstName:
+                    type: string
+                lastName:
+                    type: string
+                email:
+                    type: string
+                dateCreated:
+                    type: datetime
+                isOwner:
+                    type: boolean
+        400:
+            description: Error
+            type: json
+            properties:
+                error:
+                    type: string
+
+    """
     user = User.query.get(user_id)
 
     if not user:
@@ -66,6 +143,30 @@ def update_user(user_id):
 # This route will delete a user from the database
 @user_router.route("/delete/<int:user_id>", methods=["DELETE"])
 def delete_user(user_id):
+    """
+    Create a new user
+    ---
+    responses:
+        200:
+            description: A message confirming the user was deleted
+            type: json
+            properties:
+                message:
+                    type: string
+        400:
+            description: Missing required fields
+            type: json
+            properties:
+                error:
+                    type: string
+        404:
+            description: User not found
+            type: json
+            properties:
+                error:
+                    type: string
+
+    """
     user = User.query.get(user_id)
 
     if not user:
