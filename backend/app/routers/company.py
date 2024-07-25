@@ -10,6 +10,31 @@ company_router = Blueprint("company", __name__, url_prefix="/company")
 # This route will return a list of all companies in the database
 @company_router.route("/list", methods=["GET"])
 def list_companies():
+    """
+    List all companies
+    ---
+    responses:
+        200:
+            description: A list of all companies
+            type: json
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                address:
+                    type: string
+                city:
+                    type: string
+                state:
+                    type: string
+                zip:
+                    type: integer
+                dateCreated:
+                    type: datetime
+                ownerId:
+                    type: integer
+    """
     companies = Company.query.all()
     json_companies = list(map(lambda company: company.to_json(), companies))
     return jsonify({"companies": json_companies})
@@ -18,6 +43,44 @@ def list_companies():
 # This route will create a new company in the database
 @company_router.route("/create", methods=["POST"])
 def create_company():
+    """
+    Create a new Company
+    ---
+    responses:
+        201:
+            description: The newly created company
+            type: json
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                address:
+                    type: string
+                city:
+                    type: string
+                state:
+                    type: string
+                zip:
+                    type: integer
+                dateCreated:
+                    type: datetime
+                ownerId:
+                    type: integer
+        400:
+            description: Missing required fields
+            type: json
+            properties:
+                error:
+                    type: string
+        404:
+            description: Owner not found
+            type: json
+            properties:
+                error:
+                    type: string
+
+    """
     name = request.json.get("name")
     address = request.json.get("address")
     city = request.json.get("city")
@@ -53,6 +116,43 @@ def create_company():
 # This route will update a company in the database
 @company_router.route("/update/<int:company_id>", methods=["PATCH"])
 def update_company(company_id):
+    """
+    Update a Company
+    ---
+    responses:
+        200:
+            description: The newly updated company
+            type: json
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                address:
+                    type: string
+                city:
+                    type: string
+                state:
+                    type: string
+                zip:
+                    type: integer
+                dateCreated:
+                    type: datetime
+                ownerId:
+                    type: integer
+        400:
+            description: Error
+            type: json
+            properties:
+                error:
+                    type: string
+        404:
+            description: Company not found
+            type: json
+            properties:
+                error:
+                    type: string
+    """
     company = Company.query.get(company_id)
 
     if not company:
@@ -77,6 +177,29 @@ def update_company(company_id):
 # This route will delete a company from the database
 @company_router.route("/delete/<int:company_id>", methods=["DELETE"])
 def delete_company(company_id):
+    """
+    Delete a Company
+    ---
+    responses:
+        201:
+            description: A message indicating the company was deleted
+            type: json
+            properties:
+                message:
+                    type: string
+        400:
+            description: Error
+            type: json
+            properties:
+                error:
+                    type: string
+        404:
+            description: Company not found
+            type: json
+            properties:
+                error:
+                    type: string
+    """
     company = Company.query.get(company_id)
 
     if not company:
