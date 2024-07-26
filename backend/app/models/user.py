@@ -6,6 +6,7 @@ class User(db.Model):
     first_name = db.Column(db.String(80), unique=False, nullable=False)
     last_name = db.Column(db.String(80), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), unique=False, nullable=False)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     is_owner = db.Column(db.Boolean, default=False)
 
@@ -15,6 +16,7 @@ class User(db.Model):
             "firstName": self.first_name,
             "lastName": self.last_name,
             "email": self.email,
+            "password": self.password,
             "dateCreated": self.date_created,
             "isOwner": self.is_owner
         }

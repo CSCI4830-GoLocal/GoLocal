@@ -14,7 +14,8 @@ def test_create_user(client):
     data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "JohnDoe@gmail.com"
+        "email": "JohnDoe@gmail.com",
+        "password": "password"
     }
     response = client.post("/api/v1/user/create", json=data)
     assert response.status_code == 201
@@ -24,6 +25,7 @@ def test_create_user(client):
     assert user.first_name == data["firstName"]
     assert user.last_name == data["lastName"]
     assert user.email == data["email"]
+    assert user.password == data["password"]
 
 
 def test_create_user_missing_fields(client):
@@ -36,7 +38,8 @@ def test_create_user_missing_fields(client):
 
 
 def test_update_user(client):
-    user = User(first_name="John", last_name="Doe", email="john.doe@example.com")
+    user = User(first_name="John", last_name="Doe",
+                email="john.doe@example.com", password="password")
     db.session.add(user)
     db.session.commit()
     data = {
@@ -54,13 +57,15 @@ def test_update_user_not_found(client):
     data = {
         "firstName": "Johnny"
     }
-    response = client.patch("/api/v1/user/update/999", data=json.dumps(data), content_type='application/json')
+    response = client.patch("/api/v1/user/update/999",
+                            data=json.dumps(data), content_type='application/json')
     assert response.status_code == 404
     assert "error" in response.json
 
 
 def test_delete_user(client):
-    user = User(first_name="John", last_name="Doe", email="john.doe@example.com", is_owner=False)
+    user = User(first_name="John", last_name="Doe",
+                email="john.doe@example.com", password="password", is_owner=False)
     db.session.add(user)
     db.session.commit()
 
@@ -70,6 +75,7 @@ def test_delete_user(client):
 
     deleted_user = User.query.get(user.id)
     assert deleted_user is None
+
 
 def test_delete_user_not_found(client):
     response = client.delete("/api/v1/user/delete/999")
