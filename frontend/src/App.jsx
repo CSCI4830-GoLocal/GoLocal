@@ -1,8 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import LoginSignup from "./Components/LoginSignup/LoginSignup.jsx";
 
 function App() {
-  return <div>Hello, world!</div>;
+  return <LoginSignup />;
 }
 
 export default App;
