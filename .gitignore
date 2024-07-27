@@ -161,6 +161,8 @@ cython_debug/
 
 
 **/node_modules/
+/node_modules
+frontend/node_modules/
 .DS_Store/
 /.DS_Store
 .DS_Store
