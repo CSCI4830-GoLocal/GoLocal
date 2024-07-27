@@ -26,6 +26,8 @@ def list_users():
                     type: string
                 email:
                     type: string
+                password:
+                    type: string
                 dateCreated:
                     type: datetime
                 isOwner:
@@ -55,6 +57,8 @@ def create_user():
                     type: string
                 email:
                     type: string
+                password:
+                    type: string
                 dateCreated:
                     type: datetime
                 isOwner:
@@ -69,15 +73,17 @@ def create_user():
     first_name = request.json.get("firstName")
     last_name = request.json.get("lastName")
     email = request.json.get("email")
+    password = request.json.get("password")
     is_owner = request.json.get("isOwner")
 
-    if not first_name or not last_name or not email:
+    if not first_name or not last_name or not email or not password:
         return jsonify({"error": "Missing required fields"}), 400
 
     new_user = User(
         first_name=first_name,
         last_name=last_name,
         email=email,
+        password=password,
         is_owner=is_owner
     )
 
@@ -109,6 +115,8 @@ def update_user(user_id):
                     type: string
                 email:
                     type: string
+                password:
+                    type: string
                 dateCreated:
                     type: datetime
                 isOwner:
@@ -130,6 +138,7 @@ def update_user(user_id):
     user.first_name = data.get("firstName", user.first_name)
     user.last_name = data.get("lastName", user.last_name)
     user.email = data.get("email", user.email)
+    user.password = data.get("password", user.password)
     user.is_owner = data.get("isOwner", user.is_owner)
 
     try:

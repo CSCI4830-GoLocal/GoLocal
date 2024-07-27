@@ -1,6 +1,4 @@
-import json
 from app.models.company import Company
-from app.models.user import User
 from app.config import db
 
 
@@ -23,9 +21,10 @@ def test_create_company(client):
     user_data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "JohnDoe@gmail.com"
+        "email": "JohnDoe@gmail.com",
+        "password": "password"
     }
-    create_user = client.post("/api/v1/user/create", json=user_data)
+    client.post("/api/v1/user/create", json=user_data)
     response = client.post("/api/v1/company/create", json=company_data)
     assert response.status_code == 201
     assert "company" in response.json
@@ -46,9 +45,10 @@ def test_create_company_missing_fields(client):
     user_data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "JohnDoe@gmail.com"
+        "email": "JohnDoe@gmail.com",
+        "password": "password"
     }
-    create_user = client.post("/api/v1/user/create", json=user_data)
+    client.post("/api/v1/user/create", json=user_data)
     response = client.post("/api/v1/company/create", json=company_data)
     assert response.status_code == 400
     assert "error" in response.json
@@ -69,7 +69,8 @@ def test_create_company_without_owner(client):
 
 
 def test_update_company(client):
-    company = Company(name="Acme Inc", address="123 Main St", city="Springfield", state="IL", zip=62701, owner_id=1)
+    company = Company(name="Acme Inc", address="123 Main St",
+                      city="Springfield", state="IL", zip=62701, owner_id=1)
     db.session.add(company)
     db.session.commit()
     data = {
@@ -93,7 +94,8 @@ def test_update_company_not_found(client):
 
 
 def test_delete_company(client):
-    company = Company(name="Acme Inc", address="123 Main St", city="Springfield", state="IL", zip=62701, owner_id=1)
+    company = Company(name="Acme Inc", address="123 Main St",
+                      city="Springfield", state="IL", zip=62701, owner_id=1)
     db.session.add(company)
     db.session.commit()
 

@@ -3,11 +3,13 @@ from app.models.company import Company
 from app.models.post import Post
 from app.config import db
 
+
 def test_list_posts(client):
     response = client.get("/api/v1/post/list")
 
     assert response.status_code == 200
     assert "posts" in response.json
+
 
 def test_create_post(client):
     company_data = {
@@ -21,7 +23,8 @@ def test_create_post(client):
     user_data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "JohnDoe@gmail.com"
+        "email": "JohnDoe@gmail.com",
+        "password": "password"
     }
     post_data = {
         "companyId": 1,
@@ -37,6 +40,7 @@ def test_create_post(client):
     assert post.comment == post_data["comment"]
     assert post.company_id == post_data["companyId"]
 
+
 def test_create_post_missing_fields(client):
     company_data = {
         "name": "Acme Inc",
@@ -49,7 +53,8 @@ def test_create_post_missing_fields(client):
     user_data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "JohnDoe@gmail.com"
+        "email": "JohnDoe@gmail.com",
+        "password": "password"
     }
     post_data = {
         "companyId": 1
@@ -61,6 +66,7 @@ def test_create_post_missing_fields(client):
     assert response.status_code == 400
     assert "error" in response.json
 
+
 def test_create_post_without_company(client):
     post_data = {
         "companyId": 999,
@@ -69,6 +75,7 @@ def test_create_post_without_company(client):
     response = client.post("/api/v1/post/create", json=post_data)
     assert response.status_code == 404
     assert "error" in response.json
+
 
 def test_update_post(client):
     company_data = {
@@ -82,7 +89,8 @@ def test_update_post(client):
     user_data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "JohnDoe@gmail.com"
+        "email": "JohnDoe@gmail.com",
+        "password": "password"
     }
     post_data = {
         "comment": "This is a test post.",
@@ -102,7 +110,7 @@ def test_update_post(client):
 
     updated_post = Post.query.get(1)
     assert updated_post.comment == data["comment"]
-    
+
 
 def test_update_post_not_found(client):
     data = {
@@ -111,6 +119,7 @@ def test_update_post_not_found(client):
     response = client.patch("/api/v1/post/update/999", json=data)
     assert response.status_code == 404
     assert "error" in response.json
+
 
 def test_delete_post(client):
     company_data = {
@@ -124,7 +133,8 @@ def test_delete_post(client):
     user_data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "JohnDoe@gmail.com"
+        "email": "JohnDoe@gmail.com",
+        "password": "password"
     }
     post_data = {
         "comment": "This is a test post.",
@@ -140,6 +150,7 @@ def test_delete_post(client):
 
     post = Post.query.get(1)
     assert post is None
+
 
 def test_delete_post_not_found(client):
     response = client.delete("/api/v1/post/delete/999")
