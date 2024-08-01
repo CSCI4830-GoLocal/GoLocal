@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { setUser, setError} from '../../store/userSlice';
 import './login.css';
@@ -42,7 +42,7 @@ const Login = () => {
     return (
         <div className="login">
             <div className="login-header">
-                <h1 className="company-name">Go Local</h1>
+                <h1 className="company-name">GoLocal</h1>
                 <h2 className="page-title">A Social Media for Small Businesses</h2>
             </div>
             <div className="login-container">
@@ -68,6 +68,9 @@ const Login = () => {
                 </form>
                 {error && <p className="error-message">{error}</p>}
                 <p className="login-help">Contact GoLocal's support team if you struggle logging in</p>
+                <Link to="/signup" className="switch-auth-mode">
+                    Don't have an account? Sign up here.
+                </Link>
             </div>
         </div>
     );
