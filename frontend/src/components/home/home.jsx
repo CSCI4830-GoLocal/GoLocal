@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearUser } from '../../store/userSlice';
+import Navbar from '../navbar/navbar';
 import './home.css';
 
 
@@ -18,10 +19,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            <div className="home-header">
-                <h1 className="company-name">Go Local</h1>
-                <h2 className="page-title">A Social Media for Small Businesses</h2>
-            </div>
+            <Navbar />
             <div className="home-container">
                 <h3 className="welcome-message">Welcome, {firstName} {lastName}</h3>
                 <p className="home-description">
