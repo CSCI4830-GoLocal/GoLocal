@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import { store } from './store/store'
+import ProtectedRoute from './components/protectedRoute.jsx'
 import Login from './components/login/login.jsx'
 import Signup from './components/signup/signup.jsx'
 import Home from './components/home/home.jsx'
@@ -16,7 +17,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          } />
         </Routes>
       </Router>
     </Provider>
