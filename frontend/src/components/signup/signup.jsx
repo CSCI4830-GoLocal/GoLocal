@@ -5,6 +5,7 @@ import axios from 'axios';
 import { setUser, setError } from '../../store/userSlice';
 import './signup.css';
 
+const API_URL = import.meta.env.VITE_APP_API_URL;
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:5000/api/v1/user/create',
+            const response = await axios.post(`${API_URL}/api/v1/user/create`,
                 {
                     email: email,
                     firstName: firstName,
