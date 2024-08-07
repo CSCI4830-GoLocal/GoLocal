@@ -1,6 +1,6 @@
 import json
 from app.models.company import Company
-from backend.app.models.reviews import Reviews
+from app.models.reviews import Reviews
 from app.config import db
 
 
