@@ -27,6 +27,7 @@ jobs:
                 pipenv install --dev
             - name: Set PYTHONPATH
               run: echo "PYTHONPATH=$(pwd)/backend" >> $GITHUB_ENV
+              shell: bash
             - name: Test with pytest
               run: |
                     cd backend
