@@ -28,7 +28,9 @@ def test_create_reviews(client):
     }
     reviews_data = {
         "companyId": 1,
-        "comment": "This is a test post."
+        "comment": "This is a test post.",
+        "stars": 5,
+        "user_id": 1
     }
     client.post("/api/v1/user/create", json=user_data)
     client.post("/api/v1/company/create", json=company_data)
@@ -94,7 +96,9 @@ def test_update_post(client):
     }
     reviews_data = {
         "comment": "This is a test post.",
-        "companyId": 1
+        "companyId": 1,
+        "stars": 1,
+        "user_id":1
     }
     client.post("/api/v1/user/create", json=user_data)
     client.post("/api/v1/company/create", json=company_data)
@@ -138,7 +142,9 @@ def test_delete_reviews(client):
     }
     reviews_data = {
         "comment": "This is a test post.",
-        "companyId": 1
+        "companyId": 1,
+        "stars": 1,
+        "user_id": 1
     }
     client.post("/api/v1/user/create", json=user_data)
     client.post("/api/v1/company/create", json=company_data)
