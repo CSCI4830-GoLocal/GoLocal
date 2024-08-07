@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from backend.app.models.reviews import Reviews
+from app.models.reviews import Reviews
 from app.models.company import Company
 from app.config import db
 
