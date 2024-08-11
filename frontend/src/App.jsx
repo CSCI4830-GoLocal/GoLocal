@@ -6,6 +6,7 @@ import ProtectedRoute from './components/protectedRoute.jsx'
 import Login from './components/login/login.jsx'
 import Signup from './components/signup/signup.jsx'
 import Home from './components/home/home.jsx'
+import Posts from './components/posts/posts.jsx'
 
 
 
@@ -20,6 +21,11 @@ function App() {
           <Route path="/home" element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          } />
+          <Route path="/posts" element={
+            <ProtectedRoute>
+              <Posts />
             </ProtectedRoute>
           } />
         </Routes>
