@@ -8,6 +8,7 @@ import Signup from './components/signup/signup.jsx';
 import Home from './components/home/home.jsx';
 import Posts from './components/posts/posts.jsx';
 import UserProfile from './components/userprofile/userprofile.jsx';
+import EditProfile from './components/userprofile/EditProfile.jsx'; 
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
           <Route path="/profile" element={
             <ProtectedRoute>
               <UserProfile />
+            </ProtectedRoute>
+          } />
+          <Route path="/profile/edit" element={
+            <ProtectedRoute>
+              <EditProfile />
             </ProtectedRoute>
           } />
         </Routes>

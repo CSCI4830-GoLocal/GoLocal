@@ -56,6 +56,11 @@
     border-radius: 5px;
 }
 
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
 .tab-button:hover {
     background-color: #e0e0e0;
 }
