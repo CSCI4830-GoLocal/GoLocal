@@ -5,6 +5,7 @@ import axios from 'axios';
 import { setUser, setError} from '../../store/userSlice';
 import './login.css';
 
+const API_URL = import.meta.env.VITE_APP_API_URL;
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get('http://127.0.0.1:5000/api/v1/user/list');
+            const response = await axios.get(`${API_URL}/api/v1/user/list`);
             const users = response.data.users;
 
             const user = users.find(user => user.email === email && user.password === password);

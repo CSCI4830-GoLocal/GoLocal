@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from '../navbar/navbar';
 import './posts.css';
 
+const API_URL = import.meta.env.VITE_APP_API_URL;
 
 const Posts = () => {
     const [posts, setPosts] = useState([]);
@@ -10,7 +11,7 @@ const Posts = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/api/v1/post/list');
+                const response = await axios.get(`${API_URL}/api/v1/post/list`);
                 setPosts(response.data.posts);
             } catch (error) {
                 console.error('Error fetching posts:', error);
