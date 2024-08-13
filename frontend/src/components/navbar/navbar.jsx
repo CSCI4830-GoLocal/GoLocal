@@ -1,12 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearUser } from '../../store/userSlice';
 import './navbar.css';
 
-
 const Navbar = () => {
+    const [searchQuery, setSearchQuery] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
     
@@ -15,13 +14,32 @@ const Navbar = () => {
         navigate('/login');
     };
 
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        if (searchQuery) {
+            navigate(`/search?query=${searchQuery}`);
+        }
+    };
+
     return (
         <nav className="navbar">
             <div className="navbar-left">
                 <Link to="/" className="navbar-logo">GoLocal</Link>
             </div>
             <div className="navbar-center">
-                <input type="text" placeholder="Search..." className="navbar-search" />
+                <form onSubmit={handleSearchSubmit} className="navbar-search-form">
+                    <input 
+                        type="text" 
+                        value={searchQuery} 
+                        onChange={handleSearchChange} 
+                        placeholder="Search..." 
+                        className="navbar-search" 
+                    />
+                </form>
                 <Link to="/posts" className="navbar-link">Posts</Link>
                 <Link to="/businesses" className="navbar-link">Businesses</Link>
             </div>
