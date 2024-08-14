@@ -12,3 +12,4 @@ router.register_blueprint(user_router)
 router.register_blueprint(company_router)
 router.register_blueprint(post_router)
 router.register_blueprint(search_router)  
+

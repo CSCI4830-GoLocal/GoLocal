@@ -12,20 +12,36 @@ jobs:
             contents: read
             pull-requests: write
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
               with:
                 fetch-depth: 0
+
             - name: Set up Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 python-version: 3.12.0
+
             - name: Install dependencies
               run: |
                 cd backend
                 python -m pip install --upgrade pip
                 pip install pipenv
                 pipenv install --dev
+
+            - name: Set PYTHONPATH
+              run: echo "PYTHONPATH=$(pwd)/backend" >> $GITHUB_ENV
+              shell: bash
+
+            - name: Print current directory and PYTHONPATH
+              run: |
+                cd backend
+                echo "Current directory: $(pwd)"
+                echo "PYTHONPATH is $PYTHONPATH"
+              shell: bash
+
             - name: Test with pytest
               run: |
-                    cd backend
-                    pipenv run pytest -p no:warnings
+                cd backend
+                pipenv run pytest -p no:warnings
+              shell: bash
+
