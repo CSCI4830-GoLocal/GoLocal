@@ -9,6 +9,7 @@ import Home from './components/home/home.jsx';
 import Posts from './components/posts/posts.jsx';
 import UserProfile from './components/userprofile/userprofile.jsx';
 import EditProfile from './components/userprofile/EditProfile.jsx'; 
+import SearchResults from './components/searchresults/SearchResults.jsx';
 
 function App() {
   return (
@@ -36,6 +37,11 @@ function App() {
           <Route path="/profile/edit" element={
             <ProtectedRoute>
               <EditProfile />
+            </ProtectedRoute>
+          } />
+          <Route path="/search" element={
+            <ProtectedRoute>
+              <SearchResults />
             </ProtectedRoute>
           } />
         </Routes>
