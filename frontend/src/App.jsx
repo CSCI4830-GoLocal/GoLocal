@@ -10,7 +10,7 @@ import Posts from './components/posts/posts.jsx';
 import UserProfile from './components/userprofile/userprofile.jsx';
 import EditProfile from './components/userprofile/EditProfile.jsx'; 
 import SearchResults from './components/searchresults/SearchResults.jsx';
-
+import Company from './components/company/company.jsx';
 function App() {
   return (
     <Provider store={store}>
@@ -27,6 +27,11 @@ function App() {
           <Route path="/posts" element={
             <ProtectedRoute>
               <Posts />
+            </ProtectedRoute>
+          } />
+           <Route path="/company" element={
+            <ProtectedRoute>
+              <Company />
             </ProtectedRoute>
           } />
           <Route path="/profile" element={

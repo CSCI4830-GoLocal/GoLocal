@@ -41,7 +41,7 @@ const Navbar = () => {
                     />
                 </form>
                 <Link to="/posts" className="navbar-link">Posts</Link>
-                <Link to="/businesses" className="navbar-link">Businesses</Link>
+                <Link to="/company" className="navbar-link">Businesses</Link>
             </div>
             <div className="navbar-right">
                 <Link to="/profile" className="navbar-link">Profile</Link>
