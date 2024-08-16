@@ -3,8 +3,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #f5f5f5;
+    height: 125vh;
+    background-image: url('./images/capitol1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .signup-header {
@@ -12,31 +15,50 @@
     margin-bottom: 20px;
 }
 
-.company-name {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
+.logo {
+    max-width: 250px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space below the logo */
 }
 
-.page-title {
+/* removing name and replacing with logo
+/*.company-name {
     font-size: 1.5rem;
-    color: #666;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+}*/
+
+.page-title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+    font-weight:600;
+    color: #f3ebeb;
+    text-shadow: 2px 6px 4px rgba(0, 0, 0, 0.5);
 }
 
 .signup-container {
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 400px;
     text-align: center;
+
 }
 
 .signup-description {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #444;
+    font-weight: 600;
+    letter-spacing: 1px;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+
 }
 
 .signup-form {
@@ -47,19 +69,20 @@
 .pin-input {
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .signup-button {
-    background-color: #007BFF;
+    background-color: hsl(211, 100%, 50%);
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .signup-button:hover {
@@ -69,12 +92,15 @@
 .error-message {
     color: red;
     margin-top: 10px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .signup-help {
     font-size: 0.875rem;
     color: #666;
     margin-top: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .switch-auth-mode {
@@ -83,8 +109,10 @@
     color: #007BFF;
     text-decoration: none;
     font-size: 0.9rem;
+    
 }
 
 .switch-auth-mode:hover {
     text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

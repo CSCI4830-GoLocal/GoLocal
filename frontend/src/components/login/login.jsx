@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { setUser, setError} from '../../store/userSlice';
 import './login.css';
+import logo from './images/golocal2.png'
 
 const API_URL = import.meta.env.VITE_APP_API_URL;
 
@@ -43,12 +44,12 @@ const Login = () => {
     return (
         <div className="login">
             <div className="login-header">
-                <h1 className="company-name">GoLocal</h1>
-                <h2 className="page-title">A Social Media for Small Businesses</h2>
+                <img src={logo} alt="Logo" className="logo" />
+                <h2 className="page-title">Where Local Connections Thrive</h2>
             </div>
             <div className="login-container">
                 <p className="login-description">
-                    Please enter your email and password to log in.
+                    Please enter your email and password to log in
                 </p>
                 <form onSubmit={handleSubmit} className="login-form">
                     <input 
@@ -65,7 +66,7 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type="submit" className="login-button">Submit</button>
+                    <button type="submit" className="login-button">Login</button>
                 </form>
                 {error && <p className="error-message">{error}</p>}
                 <p className="login-help">Contact GoLocal's support team if you struggle logging in</p>

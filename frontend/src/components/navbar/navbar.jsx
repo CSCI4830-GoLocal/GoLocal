@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearUser } from '../../store/userSlice';
 import './navbar.css';
+import logo from './images/golocal2.png'
+
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -28,7 +30,9 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-left">
-                <Link to="/" className="navbar-logo">GoLocal</Link>
+            <Link to="/home">
+                    <img src={logo} alt="Logo" className="logo1" />
+                </Link>
             </div>
             <div className="navbar-center">
                 <form onSubmit={handleSearchSubmit} className="navbar-search-form">

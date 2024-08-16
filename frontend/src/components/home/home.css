@@ -6,9 +6,15 @@ body, html {
 
 .home {
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    background-image: url('./images/wall.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .home-container {
@@ -20,21 +26,77 @@ body, html {
     padding: 20px;
 }
 
+.card {
+    background-color: white;
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    width: 100%;
+    max-width: 800px; /* Optional: limit the width of cards */
+    margin-bottom: 20px; /* Space between cards */
+}
+
+.welcome-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff; /* White background for the card */
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for the card */
+    padding: 10px;
+    width: 100%; 
+    max-width: 800px; /* Maximum width for the card */
+    text-align: center; /* Center the text within the card */
+    
+}
+
+.description-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff; /* White background for the card */
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4); /* Light shadow for the card */
+    padding: 20px;
+    width: 100%; 
+    max-width: 800px; /* Maximum width for the card */
+    text-align: center; /* Center the text within the card */
+}
+
 .welcome-message {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.1);
+    margin: 0; /* Remove default margin */
+    color: rgb(91, 98, 239);
+}
+
+.home-instructions {
+    list-style-type: disc; /* Ensures bullets are shown */
+    padding-left: 20px; /* Adds space to accommodate bullets */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.1);
+    color: black;
 }
 
 .home-description {
     font-size: 1rem;
-    color: #444;
-    margin-bottom: 20px;
+    color: rgb(91, 98, 239);
+    margin: 10px; /* Remove default margin */
     text-align: center;
     max-width: 600px;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .logout-button {
-    background-color: #007BFF;
     color: #fff;
     padding: 10px 20px;
     border: none;

@@ -42,11 +42,11 @@ const Company = () => {
                                 </span>
                                 <span className="company-id">Company ID: {company.id}</span>
                             </div>
-                            <div className="company-name">{company.name}</div>
-                            <div className="company-address">Address: {company.address}</div>
-                            <div className="company-city">City: {company.city}</div>
-                            <div className="company-state">State: {company.state}</div>
-                            <div className="company-zip">ZIP: {company.zip}</div>
+                            <div className="company-name1">{company.name}</div>
+                            <div className="company-address1">Address: {company.address}</div>
+                            <div className="company-city1">City: {company.city}</div>
+                            <div className="company-state1">State: {company.state}</div>
+                            <div className="company-zip1">ZIP: {company.zip}</div>
                         </div>
                     ))
                 ) : (
