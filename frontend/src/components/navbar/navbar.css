@@ -3,9 +3,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    width: 100%;
+    
 }
+
+
 
 .navbar-left {
     flex: 1;
@@ -25,26 +29,43 @@
     align-items: center;
 }
 
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
+.logo1 {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space below the logo */
+    margin-right: 50px;
 }
+
+/* removing this logo and replacing with it with new logo
+.navbar-logo {
+    font-size: 3.5rem;
+    font-weight: bolder;
+    color: #484747;
+    text-decoration: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 5px 6px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+
+
+}*/
 
 .navbar-search {
     padding: 0.5rem;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 4px;
-    width: 200px;
+    width: 870px;
     margin-right: 1rem;
+
 }
 
 .navbar-link {
     margin-left: 1rem;
     color: #333;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 800;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .navbar-link:hover {
@@ -52,14 +73,15 @@
 }
 
 .logout-button {
-    background-color: #007bff;
+    background-color: #6b70ef;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
     margin-left: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .logout-button:hover {
@@ -82,6 +104,7 @@
         width: 100%;
         margin-right: 0;
         margin-bottom: 1rem;
+
     }
 
     .navbar-link, .logout-button {

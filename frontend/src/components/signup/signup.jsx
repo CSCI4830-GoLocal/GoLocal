@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { setUser, setError } from '../../store/userSlice';
 import './signup.css';
+import logo from './images/golocal2.png'
 
 const API_URL = import.meta.env.VITE_APP_API_URL;
 
@@ -49,12 +50,12 @@ const Signup = () => {
     return (
         <div className="signup">
             <div className="signup-header">
-                <h1 className="company-name">GoLocal</h1>
-                <h2 className="page-title">A Social Media for Small Businesses</h2>
+                <img src={logo} alt="Logo" className="logo" />
+                <h2 className="page-title">Discover Your Neighborhood</h2>
             </div>
             <div className="signup-container">
                 <p className="signup-description">
-                    Please enter the following information to sign up.
+                    Create your account
                 </p>
                 <form onSubmit={handleSubmit} className="signup-form">
                     <input 
